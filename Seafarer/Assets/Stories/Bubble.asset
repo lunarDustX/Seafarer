@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Bubble
   m_EditorClassIdentifier: 
   storyName: BUBBLE
-  desc: ???
+  desc: "\u4F60\u597D\u3002"
   interactName: Investigate
   reward: 1
   results:
   - You got a fish
   - You got a jelly
-  result: 
+  result: You got a jelly
