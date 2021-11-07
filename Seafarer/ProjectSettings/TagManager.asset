@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Map
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: Fog
     uniqueID: 1219012101
+    locked: 0
+  - name: MapUI
+    uniqueID: 1031800983
     locked: 0

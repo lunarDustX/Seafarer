@@ -34,11 +34,6 @@ public class StoryMgr : MonoBehaviour
     private Story currentStory;
     private GameObject storyPlace;
 
-    private void Start()
-    {
-
-    }
-
     public void StartStory(Story _story, GameObject _place)
     {
         if (_story == null)

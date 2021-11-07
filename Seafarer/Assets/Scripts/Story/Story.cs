@@ -15,6 +15,7 @@ public class Story : ScriptableObject
     public string storyName;
     [TextArea(1,3)]
     public string desc;
+    public Sprite img;
     public string interactName = "Explore";
     //public StoryType storyType;
     //public int num;
