@@ -26,6 +26,7 @@ public class StoryContainer : MonoBehaviour
     public void OneStoryEnd()
     {
         progress++;
+        Debug.Log("bookPage: " + progress);
 
         if (onOneStoryEnd != null)
             onOneStoryEnd.Invoke();

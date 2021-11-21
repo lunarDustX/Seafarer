@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f175c20da630a410d865928163c24b98, type: 3}
-  m_Name: FirstNpc
+  m_Script: {fileID: 11500000, guid: 9e21cfaf5ba064c2a9f4ce8ace9e799d, type: 3}
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  storyName: Grandpa
-  desc: Granpa is waiting for you.
-  interactName: TALK
-  reward: 0
-  results:
-  - Treasure island is at (0, -6)
-  result: Treasure island is at (0, 10)
+  itemName: "\u6D77\u76D7\u77ED\u5251"
+  desc: "\u653B\u51FB\u529B2"
+  img: {fileID: 21300000, guid: de1f8870bb9d94e01a565353c4daa6d6, type: 3}
+  price: 3

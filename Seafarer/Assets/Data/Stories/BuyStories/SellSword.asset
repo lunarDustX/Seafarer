@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f175c20da630a410d865928163c24b98, type: 3}
-  m_Name: FinalTreasure
+  m_Script: {fileID: 11500000, guid: b3dc7df1267c046b9809200b8360d435, type: 3}
+  m_Name: SellSword
   m_EditorClassIdentifier: 
-  storyName: Treasure
-  desc: A huge treasure box with 4 locks.
-  interactName: Investigate
-  reward: 0
-  results:
-  - You found a letter
-  result: You need collect 4 keys to open it.
+  storyName: 
+  desc: 
+  storyImg: {fileID: 0}
+  interactName: "\u8D2D\u4E70"
+  rewards: []
+  results: []
+  result: 
+  item: {fileID: 11400000, guid: a04b6c4c30c3943d0ba5692fe461ac05, type: 2}

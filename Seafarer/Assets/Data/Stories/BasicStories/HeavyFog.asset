@@ -10,17 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f175c20da630a410d865928163c24b98, type: 3}
-  m_Name: FirstChest
+  m_Name: HeavyFog
   m_EditorClassIdentifier: 
-  storyName: A chest
-  desc: You found a chest
-  storyImg: {fileID: 21300000, guid: 1125e7f06bba8483f856f472f3edf993, type: 3}
-  interactName: Open
-  rewards:
-  - itemName: apple
-    itemNum: 2
-  - itemName: sword
-    itemNum: 1
+  storyName: Fog
+  desc: The fog is heavy. It's not easy to see.
+  storyImg: {fileID: 0}
+  interactName: Explore
+  rewards: []
   results:
-  - Yeah!
+  - Nothing Found.
   result: 

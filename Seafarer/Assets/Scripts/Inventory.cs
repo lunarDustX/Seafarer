@@ -5,7 +5,7 @@ using System;
 
 public class Inventory : MonoBehaviour
 {
-    public static int coins;
+    public static int coins = 10;
     public delegate void OnCoinChanged(int coin);
     public static OnCoinChanged onCoinChanged;
 

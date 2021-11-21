@@ -17,9 +17,10 @@ public class Story : ScriptableObject
     [TextArea(1,3)]
     public string desc;
     public Sprite storyImg;
-    public string interactName = "Explore";
-    //public StoryType storyType;
-    //public int num;
+    public string interactName = "交互";
+
+    // 故事关联性(拓展)
+    // public Story nextStory;
 
     [Serializable]
     public struct itemStack
@@ -28,7 +29,16 @@ public class Story : ScriptableObject
         public int itemNum;
     }
 
-    // Item 奖励
+    // 是否是一次性故事
+    // public bool once;
+
+    // 故事参与条件（比如等级要求）
+    // requirements
+
+    // 故事开销（商人故事）
+    // public itemStack[] costs;
+
+    // 故事奖励
     public itemStack[] rewards;
 
     // 故事结果集

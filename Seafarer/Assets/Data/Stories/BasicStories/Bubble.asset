@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyName: BUBBLE
   desc: "\u4F60\u597D\u3002"
+  storyImg: {fileID: 0}
   interactName: Investigate
-  reward: 1
+  rewards: []
   results:
   - You got a fish
   - You got a jelly

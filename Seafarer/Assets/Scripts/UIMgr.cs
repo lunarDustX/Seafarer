@@ -87,20 +87,19 @@ public class UIMgr : MonoBehaviour
         // 初始化卡片信息
         if (_story.storyImg == null)
             Debug.LogWarning("当前故事卡没有设置图片");
-            
+
         storyImg.sprite = _story.storyImg;
         storyName.text = _story.storyName;
         storyDesc.text = _story.desc;
         interactBtn.text = _story.interactName;
 
+        resultCard.gameObject.SetActive(false);
         // TODO 弹出动效
         storyCard.gameObject.SetActive(true);
     }
 
     void CloseStoryCard()
     {
-        // 结果展示卡片是否和故事卡片合并？
-        resultCard.gameObject.SetActive(false);
         storyCard.gameObject.SetActive(false);
     }
 
