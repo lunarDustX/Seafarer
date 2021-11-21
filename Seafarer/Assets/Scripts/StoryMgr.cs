@@ -75,9 +75,9 @@ public class StoryMgr : MonoBehaviour
 
         if (storyPlace)
         {
-            StoryContainer c = storyPlace.GetComponent<StoryContainer>();
-            if (c)
-                c.OneStoryEnd();
+            StoryContainer storybook = storyPlace.GetComponent<StoryContainer>();
+            if (storybook)
+                storybook.OneStoryEnd();
         }
         //if (storyPlace) Destroy(storyPlace);
 

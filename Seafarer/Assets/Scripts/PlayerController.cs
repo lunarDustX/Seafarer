@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
 
     void GetInput()
     {
-
         // movement
         upArrow = Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow);
         downArrow = Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow);

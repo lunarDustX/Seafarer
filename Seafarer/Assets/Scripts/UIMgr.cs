@@ -24,6 +24,9 @@ public class UIMgr : MonoBehaviour
     public Text foodTxt;
     public Text locationTxt;
     public Text coinTxt;
+    public GameObject itemSlotPrefab;
+    public GameObject slotPanel;
+    public GameObject inventoryPanel;
 
     [Header("Story UI")]
     public Image storyCard;
@@ -31,6 +34,7 @@ public class UIMgr : MonoBehaviour
 
     public Text storyName;
     public Text storyDesc;
+    public Image storyImg;
     public Button exploreBtn;
     public Button leaveBtn;
 
@@ -45,6 +49,7 @@ public class UIMgr : MonoBehaviour
         PlayerController.onMoved += UpdatePlayerLocation;
 
         Inventory.onCoinChanged += UpdateCoins;
+        Inventory.onInventoryChanged += UpdateInventory;
 
         // MARKER STORY CARD 
         StoryMgr.Instance.onStoryStarted += ShowStoryCard;
@@ -76,12 +81,19 @@ public class UIMgr : MonoBehaviour
         StoryMgr.Instance.EndCurrentStory();
     }
 
+    // 弹出故事卡
     void ShowStoryCard(Story _story)
     {
-        //print(_story.desc);
+        // 初始化卡片信息
+        if (_story.storyImg == null)
+            Debug.LogWarning("当前故事卡没有设置图片");
+            
+        storyImg.sprite = _story.storyImg;
         storyName.text = _story.storyName;
         storyDesc.text = _story.desc;
         interactBtn.text = _story.interactName;
+
+        // TODO 弹出动效
         storyCard.gameObject.SetActive(true);
     }
 
@@ -114,6 +126,30 @@ public class UIMgr : MonoBehaviour
     {
         coinTxt.text = _coins.ToString();
     }
+
+    void UpdateInventory() 
+    {
+        List<Inventory.ItemStack> stacks = Inventory.stacks;
+        ItemSlot[] slots = slotPanel.GetComponentsInChildren<ItemSlot>();
+        for (int i = 0; i < slots.Length; i++) 
+        {
+            if (i < stacks.Count)
+                slots[i].ShowStack(stacks[i]);
+            else
+                slots[i].Empty();
+        }
+
+        if (stacks.Count > slots.Length)
+        {
+            Debug.Log("Not Enough Slot.");
+        }
+    }
     #endregion
 
+    void Update() 
+    {
+        // 打开背包
+        if (Input.GetKeyDown(KeyCode.I))
+            inventoryPanel.SetActive(!inventoryPanel.activeSelf);
+    }
 }
