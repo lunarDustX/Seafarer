@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 12323, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: PiratePalete
   m_EditorClassIdentifier: 
-  m_Presets: []
+  m_Presets:
+  - m_Name: 
+    m_Color: {r: 1, g: 0.97725993, b: 0.9198113, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.4245283, g: 0.33842114, b: 0.33842114, a: 0}
+  - m_Name: 
+    m_Color: {r: 0.8018868, g: 0.65320694, b: 0.55602527, a: 0}

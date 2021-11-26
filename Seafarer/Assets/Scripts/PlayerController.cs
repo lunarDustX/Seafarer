@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
     public delegate void OnMoved(int toX, int toY);
     public static OnMoved onMoved;
 
-    private int food = 30;
-    private int appetite = 1;
+    public int food = 30;
+    public int appetite = 0;
 
     public GameObject splash;
 
