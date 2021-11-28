@@ -48,13 +48,26 @@ public class Story : ScriptableObject
     [HideInInspector]
     public string result;
 
+
+    // 故事准备
+    public virtual void Prepare()
+    {
+
+    }
+
     // 故事运行
+    // 返回值为故事是否完结（可删除）
     public virtual bool Run()
     {
         foreach (itemStack stack in rewards)
             Inventory.AddItem(stack.itemName, stack.itemNum);
 
         result = results[UnityEngine.Random.Range(0, results.Length)];
+        return true;
+    }
+
+    public virtual bool Leave()
+    {
         return true;
     }
 }

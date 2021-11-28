@@ -19,7 +19,7 @@ public class Merchant : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Story story = storybook.GetCurrentStory();
-            StoryMgr.Instance.StartStory(story, this.gameObject);
+            StoryMgr.Instance.ShowStory(story, this.gameObject);
         }
     }
 }

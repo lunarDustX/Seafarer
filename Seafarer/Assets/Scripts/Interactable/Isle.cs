@@ -32,7 +32,7 @@ public class Isle : MonoBehaviour
         if (progress >= size) return;
 
         Story story = storybook.GetCurrentStory();
-        StoryMgr.Instance.StartStory(story, this.gameObject);
+        StoryMgr.Instance.ShowStory(story, this.gameObject);
     }
 
     public void UpdateExplorationProgress()

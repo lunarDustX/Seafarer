@@ -58,6 +58,7 @@ public class TileMgr : MonoBehaviour
 
         Vector3Int tilePos;
         #region 可能的外边缘
+        // 当前算法有问题。传送的话会有BUG
         for (int dx = -playerFov-1; dx <= playerFov + 1; dx++)
         {
             tilePos = playerPos + new Vector3Int(dx, -playerFov-1, 0);

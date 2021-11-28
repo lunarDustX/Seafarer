@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Storybook Reader
 public class StoryMgr : MonoBehaviour
 {
     #region Singleton
@@ -29,12 +28,14 @@ public class StoryMgr : MonoBehaviour
     public OnStoryRun onStoryRun;
 
     public delegate void OnStoryQuitted();
-    public OnStoryQuitted onStoryQuitted;
+    public OnStoryQuitted onStoryLeft;
 
     private Story currentStory;
+    private bool currentStoryEnd;
     private GameObject storyPlace;
 
-    public void StartStory(Story _story, GameObject _place)
+    // 展示故事
+    public void ShowStory(Story _story, GameObject _place)
     {
         if (_story == null)
         {
@@ -47,39 +48,46 @@ public class StoryMgr : MonoBehaviour
 
         PlayerController.inControl = false;
 
+        _story.Prepare();
         if (onStoryStarted != null)
             onStoryStarted.Invoke(_story);
     }
 
+    // 进入故事
     public void RunCurrentStory()
     {
-        currentStory.Run();
+        currentStoryEnd = currentStory.Run();
 
         if (onStoryRun != null)
             onStoryRun.Invoke(currentStory);
     }
 
-    public void QuitStory()
+    // 不进入故事交互
+    public void LeaveStory()
     {
-        if (onStoryQuitted != null)
-            onStoryQuitted.Invoke();
+        currentStory.Leave();
+
+        if (onStoryLeft != null)
+            onStoryLeft.Invoke();
 
         ClearStory();
         PlayerController.inControl = true;
     }
 
-    public void EndCurrentStory()
+    // 尝试完成故事
+    public void TryFinishCurrentStory()
     {
-        if (onStoryEnded != null)
-            onStoryEnded.Invoke();
+        // if (onStoryEnded != null)
+        //     onStoryEnded.Invoke();
+        if (onStoryLeft != null)
+            onStoryLeft.Invoke();
 
-        if (storyPlace)
+        if (currentStoryEnd == true && storyPlace)
         {
             StoryContainer storybook = storyPlace.GetComponent<StoryContainer>();
             if (storybook)
                 storybook.OneStoryEnd();
         }
-        //if (storyPlace) Destroy(storyPlace);
 
         ClearStory();
         PlayerController.inControl = true;

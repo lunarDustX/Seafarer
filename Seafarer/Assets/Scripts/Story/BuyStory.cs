@@ -6,8 +6,8 @@ using UnityEngine;
 public class BuyStory : Story
 {
     public Item item;
-    
-    void Start() 
+
+    public override void Prepare()
     {
         Debug.Log("Start of BuyStory.");
         storyName = item.itemName;

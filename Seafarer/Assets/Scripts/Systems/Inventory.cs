@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour
     public static void AddCoins(int _delta)
     {
         coins += _delta;
-        coins = Mathf.Max(coins, 0);
+        // coins = Mathf.Max(coins, 0);
 
         if (onCoinChanged != null)
             onCoinChanged(coins);

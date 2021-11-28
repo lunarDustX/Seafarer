@@ -54,7 +54,7 @@ public class UIMgr : MonoBehaviour
         // MARKER STORY CARD 
         StoryMgr.Instance.onStoryStarted += ShowStoryCard;
         StoryMgr.Instance.onStoryEnded += CloseStoryCard;
-        StoryMgr.Instance.onStoryQuitted += CloseStoryCard;
+        StoryMgr.Instance.onStoryLeft += CloseStoryCard;
         StoryMgr.Instance.onStoryRun += DisplayStoryResult;
 
         storyCard.gameObject.SetActive(false);
@@ -63,12 +63,16 @@ public class UIMgr : MonoBehaviour
         leaveBtn.onClick.AddListener(LeaveBtnClicked);
         exploreBtn.onClick.AddListener(ExploreBtnClicked);
         continueBtn.onClick.AddListener(ContinueBtnClicked);
+
+        // 
+        UpdateInventory();
+        UpdateCoins(Inventory.coins);
     }
 
     #region StoryCard
     private void LeaveBtnClicked()
     {
-        StoryMgr.Instance.QuitStory();
+        StoryMgr.Instance.LeaveStory();
     }
 
     private void ExploreBtnClicked()
@@ -78,7 +82,7 @@ public class UIMgr : MonoBehaviour
 
     private void ContinueBtnClicked()
     {
-        StoryMgr.Instance.EndCurrentStory();
+        StoryMgr.Instance.TryFinishCurrentStory();
     }
 
     // 弹出故事卡

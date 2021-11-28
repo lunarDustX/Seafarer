@@ -23,16 +23,20 @@ public class Pirate : MonoBehaviour
     [HideInInspector]
     public float winChance;
 
+    private StoryContainer storybook;
+
     void Start()
     {
-        
+        storybook = GetComponent<StoryContainer>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            Encounter();
+            //Encounter();
+            Story story = storybook.GetCurrentStory();
+            StoryMgr.Instance.ShowStory(story, this.gameObject);
         }
     }
 

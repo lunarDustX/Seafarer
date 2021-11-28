@@ -18,7 +18,10 @@ public class StoryContainer : MonoBehaviour
     public Story GetCurrentStory()
     {
         if (progress >= stories.Length)
+        {
             Debug.LogError("Storybook Range");
+            return null;
+        }
 
         return stories[progress];
     }

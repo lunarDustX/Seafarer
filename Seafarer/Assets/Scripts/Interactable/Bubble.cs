@@ -16,7 +16,7 @@ public class Bubble : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Story bubbleStory = storybook.GetCurrentStory();
-            StoryMgr.Instance.StartStory(bubbleStory, this.gameObject);
+            StoryMgr.Instance.ShowStory(bubbleStory, this.gameObject);
         }
     }
 
