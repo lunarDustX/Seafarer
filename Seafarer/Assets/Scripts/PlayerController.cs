@@ -18,7 +18,9 @@ public class PlayerController : MonoBehaviour
     public static bool inControl = true;
 
     private float fishingTimer; 
+    private float movingTimer;
     private bool canFish;
+    private bool canMove;
 
     private bool upArrow, downArrow, leftArrow, rightArrow;
     private Vector2 moveDir;
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         ResetFishingState();
+        ResetMovingState();
     }
 
     void Update()
@@ -34,7 +37,9 @@ public class PlayerController : MonoBehaviour
         {
             moveDir = Vector2.zero;
             GetInput();
-            Move();
+
+            if (canMove)
+                Move();
         }
 
         if (!canFish)
@@ -42,6 +47,13 @@ public class PlayerController : MonoBehaviour
             fishingTimer += Time.deltaTime;
             if (fishingTimer >= 1f)
                 canFish = true;
+        }
+
+        if (!canMove)
+        {
+            movingTimer += Time.deltaTime;
+            if (movingTimer >= 0.3f)
+                canMove = true;
         }
     }
 
@@ -132,12 +144,20 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+    private void ResetMovingState()
+    {
+        canMove = false;
+        movingTimer = 0f;
+    }
+
+
     private void Move()
     {
         if (CanMove())
         {
             Vector2 des = moveDir + new Vector2(transform.position.x, transform.position.y);
             Teleport(des);
+            ResetMovingState();
             AddFood(-appetite);
         }
 
