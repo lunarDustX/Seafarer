@@ -7,7 +7,7 @@ public class ItemSlot : MonoBehaviour
 {
     public Text itemName;
     public Text itemNum;
-    public void ShowStack(Inventory.ItemStack _stack)
+    public void ShowStack(CustomDataStructure.itemStack _stack)
     {
         itemName.text = _stack.itemName;
         itemNum.text = _stack.itemNum.ToString();

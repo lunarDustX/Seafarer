@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New BattleStory", menuName = "Story/BattleStory")]
+[CreateAssetMenu(fileName = "New BattleStory", menuName = "CustomData/Story/BattleStory")]
 public class BattleStory : Story
 {
     [Tooltip("海盗的财富")]

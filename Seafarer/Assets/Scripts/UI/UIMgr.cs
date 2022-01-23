@@ -132,7 +132,7 @@ public class UIMgr : MonoBehaviour
 
     void UpdateInventory() 
     {
-        List<Inventory.ItemStack> stacks = Inventory.stacks;
+        List<CustomDataStructure.itemStack> stacks = Inventory.stacks;
         ItemSlot[] slots = slotPanel.GetComponentsInChildren<ItemSlot>();
         for (int i = 0; i < slots.Length; i++) 
         {

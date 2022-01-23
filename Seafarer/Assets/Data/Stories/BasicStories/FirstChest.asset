@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f175c20da630a410d865928163c24b98, type: 3}
   m_Name: FirstChest
   m_EditorClassIdentifier: 
-  storyName: "\u8FF7\u4F60\u5B9D\u7BB1"
-  desc: You found a chest
+  storyName: "\u666E\u901A\u5B9D\u7BB1"
+  desc: "\u9700\u8981\u94A5\u5319\u6253\u5F00\u3002"
   storyImg: {fileID: 21300000, guid: 1125e7f06bba8483f856f472f3edf993, type: 3}
-  interactName: Open
+  interactName: "\u6253\u5F00"
+  itemRequirements:
+  - itemName: key
+    itemNum: 1
   rewards:
   - itemName: apple
     itemNum: 2
-  - itemName: sword
-    itemNum: 1
   results:
   - Yeah!
   result: Yeah!

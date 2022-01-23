@@ -5,7 +5,24 @@ using UnityEngine.Tilemaps;
 
 public class TileMgr : MonoBehaviour
 {
-    public Tilemap fogTilemap;
+    #region Singleton
+    public static TileMgr Instance;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    #endregion
+
+
+    public bool fogActive;
+    public Tilemap fogTilemap, landTilemap;
     public Tile fogBig, fogSmall;
     public int mapWidth, mapHeight;
 
@@ -21,11 +38,6 @@ public class TileMgr : MonoBehaviour
         InitFog();
     }
 
-    void Update()
-    {
-
-    }
-
     private void LateUpdate()
     {
         UpdateFog();
@@ -34,6 +46,7 @@ public class TileMgr : MonoBehaviour
     // 初始化地图雾
     private void InitFog()
     {
+        if (!fogActive) return;
         for (int dx = -mapWidth; dx <= mapWidth; dx++)
         {
             for (int dy = -mapHeight; dy <= mapHeight; dy++)
@@ -45,6 +58,8 @@ public class TileMgr : MonoBehaviour
 
     void UpdateFog()
     {
+        if (!fogActive) return;
+
         Vector3Int playerPos = fogTilemap.WorldToCell(player.transform.position);
 
         // 视野范围
@@ -80,6 +95,13 @@ public class TileMgr : MonoBehaviour
         #endregion
     }
 
+    public bool IsPlayerOnLand()
+    {
+        Vector3Int playerPos = fogTilemap.WorldToCell(player.transform.position);
+        if (landTilemap.HasTile(playerPos))
+            return true;
+        return false;
+    }
     // void UpdateFog2()
     // {
     //     Vector3Int playerPos = fogTilemap.WorldToCell(player.transform.position);

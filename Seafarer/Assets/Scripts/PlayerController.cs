@@ -25,8 +25,14 @@ public class PlayerController : MonoBehaviour
     private bool upArrow, downArrow, leftArrow, rightArrow;
     private Vector2 moveDir;
 
+    [Header("形象")]
+    private SpriteRenderer spriteRenderer;
+    public Sprite boatSprite;
+    public Sprite personSprite;
+
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         ResetFishingState();
         ResetMovingState();
     }
@@ -111,7 +117,6 @@ public class PlayerController : MonoBehaviour
                 AddFood(3);
                 NoticeMgr.Instance.ShowMessage("钓到小鱼。食物+3");
             }
-
         }
         else
         {
@@ -125,7 +130,11 @@ public class PlayerController : MonoBehaviour
     // 传送
     public void Teleport(Vector2 _destination)
     {
-        Instantiate(splash, transform.position, Quaternion.identity);
+        // 水花特效
+        bool onLand = TileMgr.Instance.IsPlayerOnLand();
+        if (!onLand)
+            Instantiate(splash, transform.position, Quaternion.identity);
+            
         transform.position = new Vector3(_destination.x, _destination.y, 0);
         if (onMoved != null)
             onMoved((int)transform.position.x, (int)transform.position.y);
@@ -161,10 +170,13 @@ public class PlayerController : MonoBehaviour
             AddFood(-appetite);
         }
 
+        // 图片类别
+        spriteRenderer.sprite = TileMgr.Instance.IsPlayerOnLand() ? personSprite : boatSprite; 
+
+
+        // 图片方向
         if (moveDir.x != 0)
-        {
             transform.localScale = new Vector3(-moveDir.x, 1f, 1f);
-        }
     }
 
     private void AddFood(int _deltaFood)

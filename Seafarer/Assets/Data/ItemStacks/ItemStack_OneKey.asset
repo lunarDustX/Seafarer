@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729866aaaddac4bf398f6e0d68fc11ba, type: 3}
   m_Name: ItemStack_OneKey
   m_EditorClassIdentifier: 
-  itemNames:
-  - Key
-  itemNums: 01000000
+  stacks:
+  - itemName: key
+    itemNum: 1

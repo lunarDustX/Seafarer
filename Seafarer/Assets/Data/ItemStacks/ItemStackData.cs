@@ -5,6 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemStack", menuName = "CustomData/ItemStack")]
 public class ItemStackData : ScriptableObject
 {
-    public string[] itemNames;
-    public int[] itemNums;
+    public CustomDataStructure.itemStack[] stacks;
 }

@@ -21,14 +21,13 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    public void AddItem(ItemStackData _itemStack)
+    public void AddItem(ItemStackData _data)
     {
-        int types = _itemStack.itemNames.Length;
+        int types = _data.stacks.Length;
         for (int i = 0; i < types; i++)
         {
-            string itemName = _itemStack.itemNames[i];
-            int itemNum = _itemStack.itemNums[i];
-            Inventory.AddItem(itemName, itemNum);
+            CustomDataStructure.itemStack stack = _data.stacks[i];
+            Inventory.AddItemStack(stack);
         }
     }
 

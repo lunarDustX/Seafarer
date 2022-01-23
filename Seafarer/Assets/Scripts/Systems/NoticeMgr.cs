@@ -23,11 +23,16 @@ public class NoticeMgr : MonoBehaviour
     public Text messageBoard;
     private float timer;
 
+    public GameObject placeBoard;
+    public Text placeTxt;
+
     private void Start()
     {
         messageBoard.text = "";
+        placeTxt.text = "";
     }
 
+    // 普通提示（获得物品）
     public void ShowMessage(string _msg)
     {
         messageBoard.text = _msg;
@@ -38,6 +43,18 @@ public class NoticeMgr : MonoBehaviour
         messageBoard.GetComponent<RectTransform>().localScale = Vector3.one;
         LeanTween.scale(messageBoard.GetComponent<RectTransform>(), Vector3.one * 1.6f, 0.2f).setLoopPingPong(1);
         #endregion
+    }
+
+    // 高等级提示（地名提示）
+    public void ShowReminder(string _reminder)
+    {
+        placeTxt.text = _reminder;
+        placeBoard.SetActive(true);
+    }
+
+    public void HideReminder()
+    {
+        placeBoard.SetActive(false);
     }
 
     private void Update()

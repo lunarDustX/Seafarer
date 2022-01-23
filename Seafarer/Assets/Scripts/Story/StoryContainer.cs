@@ -26,6 +26,14 @@ public class StoryContainer : MonoBehaviour
         return stories[progress];
     }
 
+    // 触发故事
+    public void TriggerStory()
+    {
+        //StoryContainer storybook = GetComponent<StoryContainer>();
+        Story story = this.GetCurrentStory();
+        StoryMgr.Instance.ShowStory(story, this.gameObject);
+    }
+
     public void OneStoryEnd()
     {
         progress++;

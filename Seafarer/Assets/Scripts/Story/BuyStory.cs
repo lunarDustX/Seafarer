@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Story", menuName = "Story/BuyStory")]
+[CreateAssetMenu(fileName = "New Story", menuName = "CustomData/Story/BuyStory")]
 public class BuyStory : Story
 {
     public Item item;
@@ -21,7 +21,10 @@ public class BuyStory : Story
         if (Inventory.coins >= price)
         {
             Inventory.AddCoins(-price);
-            Inventory.AddItem(item.itemName, 1);
+            CustomDataStructure.itemStack stack;
+            stack.itemName = item.itemName;
+            stack.itemNum = 1;
+            Inventory.AddItemStack(stack);
             result = "购买成功！";
             return true;
         } 
