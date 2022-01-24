@@ -15,7 +15,7 @@ MonoBehaviour:
   storyName: "\u666E\u901A\u5B9D\u7BB1"
   desc: "\u9700\u8981\u94A5\u5319\u6253\u5F00\u3002"
   storyImg: {fileID: 21300000, guid: 1125e7f06bba8483f856f472f3edf993, type: 3}
-  interactName: "\u6253\u5F00"
+  interactName: OPEN
   itemRequirements:
   - itemName: key
     itemNum: 1

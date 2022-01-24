@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f175c20da630a410d865928163c24b98, type: 3}
   m_Name: FirstNpc
   m_EditorClassIdentifier: 
-  storyName: Grandpa
-  desc: Granpa is waiting for you.
-  storyImg: {fileID: 0}
+  storyName: "\u7237\u7237\u7684\u53EE\u5631"
+  desc: "\u7237\u7237\u4F3C\u4E4E\u5DF2\u7ECF\u7B49\u4F60\u5F88\u4E45\u4E86\u3002"
+  storyImg: {fileID: 21300000, guid: 8f3d0e683d9684242abcec0d3f06c518, type: 3}
   interactName: TALK
-  rewards: []
+  itemRequirements: []
+  rewards:
+  - itemName: key
+    itemNum: 1
   results:
-  - Treasure island is at (0, -6)
-  result: Treasure island is at (0, -6)
+  - "\u4E00\u628A\u94A5\u5319\u4E00\u628A\u9501\u3002"
+  result: "\u4E00\u628A\u94A5\u5319\u4E00\u628A\u9501\u3002"
