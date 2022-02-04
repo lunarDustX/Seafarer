@@ -13,7 +13,6 @@ public class BattleUI : MonoBehaviour
 
     public Button attackBtn;
 
-
     private Combat enemyCombat;
     private Combat playerCombat;
 

@@ -8,7 +8,11 @@ public class Combat : MonoBehaviour
     [Header("战斗数值")]
     public int maxHealth = 1;
     public int health = 1;
+    [Tooltip("攻击力")]
     public int attack = 0;
+    [Tooltip("闪避率")]
+    public float evasionRate = 0.05f;
+    public float criticalRate = 0.05f;
 
     [HideInInspector]
     public float energy = 0;
@@ -50,13 +54,23 @@ public class Combat : MonoBehaviour
 
     public void BeAttacked(int _damage)
     {
-        this.AddHealth(_damage * -1);
+        // 闪避判定可能要换个位置
+        bool evade = Random.Range(0, 1) < evasionRate;
+        if (evade == false)
+        {
+            this.AddHealth(_damage * -1);
+            //if
+        }
     }
 
     public void Attack()
     {
         if (target == null) return;
         energy = 0;
-        target.BeAttacked(attack);
+
+        bool crit = Random.Range(0, 1) < criticalRate;
+        int damage = crit ? attack * 2 : attack;
+
+        target.BeAttacked(damage);
     }
 }
