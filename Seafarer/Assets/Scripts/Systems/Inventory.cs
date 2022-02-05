@@ -11,12 +11,6 @@ public class Inventory : MonoBehaviour
 
     public static Action onInventoryChanged;
 
-    // public struct ItemStack 
-    // {
-    //     public string itemName;
-    //     public int itemNum;
-    // };
-
     public static List<CustomDataStructure.itemStack> stacks = new List<CustomDataStructure.itemStack>();
 
     public static void AddCoins(int _delta)

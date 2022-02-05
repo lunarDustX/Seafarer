@@ -129,7 +129,9 @@ public class UIMgr : MonoBehaviour
     {
         coinTxt.text = _coins.ToString();
     }
+    #endregion
 
+    // TODO:这里之后要更新一波道具显示做法
     void UpdateInventory() 
     {
         List<CustomDataStructure.itemStack> stacks = Inventory.stacks;
@@ -147,11 +149,10 @@ public class UIMgr : MonoBehaviour
             Debug.Log("Not Enough Slot.");
         }
     }
-    #endregion
 
     void Update() 
     {
-        // 打开背包
+        // 打开背包。考虑做一个InputMgr管理所有操作
         if (Input.GetKeyDown(KeyCode.I))
             inventoryPanel.SetActive(!inventoryPanel.activeSelf);
     }
