@@ -110,17 +110,21 @@ public class PlayerController : MonoBehaviour
             if (r > 3)
             {
                 AddFood(5);
-                NoticeMgr.Instance.ShowMessage("钓到大鱼。食物+5");
+                //NoticeMgr.Instance.ShowMessage("钓到大鱼。食物+5");
             }
             else
             {
                 AddFood(3);
-                NoticeMgr.Instance.ShowMessage("钓到小鱼。食物+3");
+                //NoticeMgr.Instance.ShowMessage("钓到小鱼。食物+3");
             }
+            NoticeMgr.Instance.CreateWorldReminder(transform.position, "钓鱼成功");
+
         }
         else
         {
-            NoticeMgr.Instance.ShowMessage("什么也没钓到");
+            NoticeMgr.Instance.CreateWorldReminder(transform.position, "什么也没钓到");
+
+            //NoticeMgr.Instance.ShowMessage("什么也没钓到");
         }
 
         ResetFishingState();

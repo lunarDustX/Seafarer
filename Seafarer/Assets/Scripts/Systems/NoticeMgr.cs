@@ -33,6 +33,8 @@ public class NoticeMgr : MonoBehaviour
     [Header("Prefabs")]
     // 低级消息
     public GameObject messagePrefab;
+    // 显示在世界中的消息
+    public GameObject worldReminderPrefab;
 
     private void Start()
     {
@@ -74,6 +76,7 @@ public class NoticeMgr : MonoBehaviour
         Destroy(_message);
     }
 
+    #region 
     // 高等级提示（地名提示）
     public void ShowReminder(string _reminder)
     {
@@ -84,6 +87,14 @@ public class NoticeMgr : MonoBehaviour
     public void HideReminder()
     {
         placeBoard.SetActive(false);
+    }
+    #endregion
+
+    // 大世界消息
+    public void CreateWorldReminder(Vector3 _pos, string _content)
+    {
+        WorldReminder worldReminder = Instantiate(worldReminderPrefab, _pos, Quaternion.identity).GetComponent<WorldReminder>();
+        worldReminder.Init(_content);
     }
 
     private void Update()

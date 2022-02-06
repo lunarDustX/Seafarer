@@ -12,14 +12,20 @@ public class Interactable : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void Interact()
     {
-        if (other.CompareTag("Player"))
-        {
-            if (OnInteracted != null)
-                OnInteracted.Invoke();
-        }
+        if (OnInteracted != null)
+            OnInteracted.Invoke();
     }
+
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.CompareTag("Player"))
+    //     {
+    //         if (OnInteracted != null)
+    //             OnInteracted.Invoke();
+    //     }
+    // }
 
     public void AddItem(ItemStackData _data)
     {
