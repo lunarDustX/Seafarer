@@ -27,6 +27,7 @@ public class Interactable : MonoBehaviour
     //     }
     // }
 
+    // 掉落物品
     public void AddItem(ItemStackData _data)
     {
         int types = _data.stacks.Length;
@@ -35,6 +36,12 @@ public class Interactable : MonoBehaviour
             CustomDataStructure.itemStack stack = _data.stacks[i];
             Inventory.AddItemStack(stack);
         }
+    }
+
+    // 说话
+    public void SaySomething(string _content)
+    {
+        NoticeMgr.Instance.CreateWorldReminder(this.transform.position, _content);
     }
 
     public void Die() 
