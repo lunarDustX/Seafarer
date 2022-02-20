@@ -4,6 +4,7 @@ public class Combat : MonoBehaviour
 {
     [Tooltip("是否触发UI决斗")]
     public bool triggerDuel = false;
+    public bool autoAttack = true;
 
     [Header("战斗数值")]
     public int maxHealth = 1;
@@ -30,12 +31,18 @@ public class Combat : MonoBehaviour
         if (energy < 1)
         {
             energy += energyRecoverSpd * Time.deltaTime;
+            if (autoAttack && energy >= 1)
+            {
+                Attack();
+            }
         }
     }
 
     public void AddHealth(int _delta)
     {
         health += _delta;
+        health = Mathf.Clamp(health, 0, maxHealth);
+        
         if (health <= 0)
         {
             Die();
@@ -50,12 +57,16 @@ public class Combat : MonoBehaviour
     public void SetTarget(Combat _target)
     {
         target = _target;
+
+        // 重置攻击能量
+        energy = 0;
     }
 
     public void BeAttacked(int _damage)
     {
+        Debug.Log(transform.name + " be attacked.");
         // 闪避判定可能要换个位置
-        bool evade = Random.Range(0, 1) < evasionRate;
+        bool evade = Random.Range(0f, 1f) < evasionRate;
         if (evade == false)
         {
             this.AddHealth(_damage * -1);
@@ -68,7 +79,7 @@ public class Combat : MonoBehaviour
         if (target == null) return;
         energy = 0;
 
-        bool crit = Random.Range(0, 1) < criticalRate;
+        bool crit = Random.Range(0f, 1f) < criticalRate;
         int damage = crit ? attack * 2 : attack;
 
         target.BeAttacked(damage);

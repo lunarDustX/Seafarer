@@ -80,14 +80,10 @@ public class BattleMgr : MonoBehaviour
     {
         if (inBattle)
         {
-            if (enemyCombat.energy >= 1)
-            {
-                enemyCombat.Attack();
-                if (playerCombat.health <= 0)
-                {
-                    
-                }
-            }
+            // if (enemyCombat.energy >= 1)
+            // {
+            //     enemyCombat.Attack();
+            // }
 
             // 退出条件
             if (playerCombat == null || enemyCombat == null)

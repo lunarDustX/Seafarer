@@ -18,8 +18,8 @@ MonoBehaviour:
   interactName: TALK
   itemRequirements: []
   rewards:
-  - itemName: key
+  - itemName: Shovel
     itemNum: 1
   results:
-  - "\u4E00\u628A\u94A5\u5319\u4E00\u628A\u9501\u3002"
+  - "\u5BFB\u5B9D\u8981\u6709\u4E00\u628A\u8D81\u624B\u7684\u94F2\u5B50\u3002"
   result: "\u4E00\u628A\u94A5\u5319\u4E00\u628A\u9501\u3002"

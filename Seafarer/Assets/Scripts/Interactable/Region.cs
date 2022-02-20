@@ -9,8 +9,18 @@ public class Region : MonoBehaviour
     public UnityEvent OnRegionEnter;
     public UnityEvent OnRegionLeave;
 
+    public bool displayRegionName;
     [Header("RegionInfo")]
     public string regionName;
+
+    void Start()
+    {
+        if (displayRegionName)
+        {
+            OnRegionEnter.AddListener(DisplayRegionName);
+            OnRegionLeave.AddListener(HideRegionName);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
