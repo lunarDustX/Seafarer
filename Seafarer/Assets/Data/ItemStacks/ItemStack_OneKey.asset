@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: ItemStack_OneKey
   m_EditorClassIdentifier: 
   stacks:
-  - itemName: key
+  - item: {fileID: 11400000, guid: 2c695f7c24845446ba09bedecd6a37db, type: 2}
+    itemName: key
     itemNum: 1

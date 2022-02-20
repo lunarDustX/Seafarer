@@ -8,7 +8,8 @@ public class CustomDataStructure : MonoBehaviour
     [Serializable]
     public struct itemStack
     {
-        public string itemName;
+        public Item item;
+        public string itemName; // delete Later
         public int itemNum;
     }
 }

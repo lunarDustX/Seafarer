@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: ItemStack_BerryBush
   m_EditorClassIdentifier: 
   stacks:
-  - itemName: Berry
+  - item: {fileID: 11400000, guid: 6bd28452ca1aa47f292b077a03347729, type: 2}
+    itemName: Berry
     itemNum: 1

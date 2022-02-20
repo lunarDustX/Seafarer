@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < stacks.Count; i++)
         {
             CustomDataStructure.itemStack stack = stacks[i];
-            if (stack.itemName == _stack.itemName) 
+            if (stack.item == _stack.item) 
             {
                 if (stack.itemNum >= _stack.itemNum) 
                     return true;
@@ -45,10 +45,10 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < stacks.Count; i++)
         {
             CustomDataStructure.itemStack stack = stacks[i];
-            if (stack.itemName == _stack.itemName) 
+            if (stack.item == _stack.item) 
             {
                 stack.itemNum -= _stack.itemNum;
-                NoticeMgr.Instance.ShowMessage(_stack.itemName + "+"+_stack.itemNum);
+                NoticeMgr.Instance.ShowMessage(_stack.item.itemName + "+"+_stack.itemNum);
                 break;
             }
         }
@@ -66,7 +66,7 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < stacks.Count; i++)
         {
             CustomDataStructure.itemStack stack = stacks[i];
-            if (stack.itemName == _stack.itemName) 
+            if (stack.item == _stack.item) 
             {
                 stack.itemNum += _stack.itemNum;
                 stacks[i] = stack;//+= _itemNum;

@@ -49,7 +49,7 @@ public class UIMgr : MonoBehaviour
         PlayerController.onMoved += UpdatePlayerLocation;
 
         Inventory.onCoinChanged += UpdateCoins;
-        Inventory.onInventoryChanged += UpdateInventory;
+        //Inventory.onInventoryChanged += UpdateInventory;
 
         // MARKER STORY CARD 
         StoryMgr.Instance.onStoryStarted += ShowStoryCard;
@@ -65,7 +65,7 @@ public class UIMgr : MonoBehaviour
         continueBtn.onClick.AddListener(ContinueBtnClicked);
 
         // 
-        UpdateInventory();
+        //UpdateInventory();
         UpdateCoins(Inventory.coins);
     }
 
@@ -131,24 +131,23 @@ public class UIMgr : MonoBehaviour
     }
     #endregion
 
-    // TODO:这里之后要更新一波道具显示做法
-    void UpdateInventory() 
-    {
-        List<CustomDataStructure.itemStack> stacks = Inventory.stacks;
-        ItemSlot[] slots = slotPanel.GetComponentsInChildren<ItemSlot>();
-        for (int i = 0; i < slots.Length; i++) 
-        {
-            if (i < stacks.Count)
-                slots[i].ShowStack(stacks[i]);
-            else
-                slots[i].Empty();
-        }
+    // void UpdateInventory() 
+    // {
+    //     List<CustomDataStructure.itemStack> stacks = Inventory.stacks;
+    //     ItemSlot[] slots = slotPanel.GetComponentsInChildren<ItemSlot>();
+    //     for (int i = 0; i < slots.Length; i++) 
+    //     {
+    //         if (i < stacks.Count)
+    //             slots[i].ShowStack(stacks[i]);
+    //         else
+    //             slots[i].Empty();
+    //     }
 
-        if (stacks.Count > slots.Length)
-        {
-            Debug.Log("Not Enough Slot.");
-        }
-    }
+    //     if (stacks.Count > slots.Length)
+    //     {
+    //         Debug.Log("Not Enough Slot.");
+    //     }
+    // }
 
     void Update() 
     {

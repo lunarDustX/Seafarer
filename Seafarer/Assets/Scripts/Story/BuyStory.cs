@@ -21,7 +21,7 @@ public class BuyStory : Story
         if (Inventory.coins >= price)
         {
             Inventory.AddCoins(-price);
-            CustomDataStructure.itemStack stack;
+            CustomDataStructure.itemStack stack = new CustomDataStructure.itemStack();
             stack.itemName = item.itemName;
             stack.itemNum = 1;
             Inventory.AddItemStack(stack);
